@@ -3,35 +3,33 @@ import PropTypes from "prop-types";
 
 class Contact extends Component {
   state = {
-    showContactInfo: false
+    showContactInfo: true
   };
 
-  onDeleteClick = () => {
-    this.props.deleteClickHandler();
-  };
   render() {
     const { name, email, phone } = this.props.contact;
+    const { showContactInfo } = this.state;
     return (
       <div className="card card-body mb-3">
         <h4>
-          {name}{" "}
+          {name}
+          {""}
           <i
             onClick={() =>
-              this.setState({ showContactInfo: !this.state.ShowContactInfo })
+              this.setState({ showContactInfo: !this.state.showContactInfo })
             }
-            class="fas fa-arrow-alt-circle-down"
-            style={{ cursor: "pointer" }}
+            className="fas fa-arrow-alt-circle-down"
           />
-          <i
+          {/* <i
             className="fas fa-times"
-            style={{ cursor: "pointer", float: "right", color: "red" }}
-            onClick={this.oneDeleteClick}
-          />
+          /> */}
         </h4>
-        <ul className="list-group">
-          <li className="list-group-item">Email: {email}</li>
-          <li className="list-group-item">Phone: {phone} </li>
-        </ul>
+        {showContactInfo ? (
+          <ul className="list-group">
+            <li className="list-group-item">Email: {email}</li>
+            <li className="list-group-item">Phone: {phone} </li>
+          </ul>
+        ) : null}
       </div>
     );
   }
