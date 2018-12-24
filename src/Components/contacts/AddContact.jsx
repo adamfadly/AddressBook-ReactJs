@@ -4,7 +4,7 @@ class AddContact extends Component {
   state = {
     name: "",
     email: "",
-    phone: ""
+    Phone: ""
   };
 
   onChange = e => {
@@ -45,9 +45,9 @@ class AddContact extends Component {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="phone">Phone</label>
+              <label htmlFor="Phone">Phone</label>
               <input
-                type="number"
+                type="text"
                 name="Phone"
                 className="form-control form-control-lg"
                 placeholder="Enter Number ..."
